@@ -10,7 +10,7 @@ get_19115_cats(token = Sys.getenv("WAWA_API_TOKEN"))
 \item{token}{individual API token.}
 }
 \value{
-list of 19115 request categories
+tibble of 19115 request categories
 }
 \description{
 Get categories of 19115 requests

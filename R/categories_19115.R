@@ -1,7 +1,7 @@
 #' Get categories of 19115 requests
 #'
 #' @param token individual API token.
-#' @return list of 19115 request categories
+#' @return tibble of 19115 request categories
 #' @examples
 #' get_19115_cats()
 #' @export
@@ -15,6 +15,9 @@ get_19115_cats <- function(token=Sys.getenv("WAWA_API_TOKEN")){
     httr2::req_user_agent("apiwawa (https://github.com/krystiankorzec/apiwawa)")
   resp <- req %>%
     httr2::req_perform() %>%
-    httr2::resp_body_json()
-  resp
+    httr2::resp_body_string() %>%
+    jsonlite::fromJSON() %>%
+    purrr::map("result")
+  resp_df <- tibble::as_tibble(resp$result)
+  resp_df
 }
