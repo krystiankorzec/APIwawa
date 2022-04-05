@@ -6,7 +6,7 @@
 ## Overview
 
 apiwawa is an API wrapper written in R (with httr2 package). For now
-there are functions for querying 19115 municipal contact center.
+there are functions for querying 19115 city contact center.
 
 ## Installation
 
